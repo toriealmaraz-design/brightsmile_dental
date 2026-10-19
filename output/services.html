@@ -3,104 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Clinical Services | BrightSmile</title>
-    <meta name="description" content="Explore BrightSmile Dental Practice clinical services: routine checkups, cosmetic whitening, and orthodontics.">
+    <title>Services — BrightSmile Dental Practice</title>
+    <meta name="description" content="Comprehensive dental services at BrightSmile Dental Practice. Cosmetic whitening, orthodontics, and routine checkups.">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><ellipse cx='32' cy='28' rx='14' ry='12'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 8)'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 16)'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 24)'/><ellipse cx='32' cy='20' rx='14' ry='12' transform='translate(0 4)'/><ellipse cx='32' cy='12' rx='14' ry='12' transform='translate(0 4)'/><rect x='18' y='16' width='12' height='6' rx='2'/><rect x='34' y='16' width='12' height='6' rx='2'/><rect x='18' y='24' width='12' height='6' rx='2'/><rect x='34' y='24' width='12' height='6' rx='2'/></svg>">
 </head>
 <body>
 
 <header class="navbar">
     <div class="container nav-container">
         <a href="index.html" class="logo-group">
-            <img src="https://cdn-icons-png.flaticon.com/512/3467/3467776.png" alt="BrightSmile Tooth Logo" class="logo-img">
+            <svg class="logo-img" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 30c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8z"/>
+                <path d="M24 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                <path d="M36 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                <path d="M24 32c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                <ellipse cx="32" cy="44" rx="12" ry="8"/>
+            </svg>
             <span class="logo-text">BrightSmile</span>
         </a>
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="hamburger"><span></span><span></span><span></span></label>
         <nav class="nav-links">
             <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
+            <a href="services.html" class="active">Services</a>
             <a href="booking.html">Book Appointment</a>
             <a href="staff.html">Staff Portal</a>
         </nav>
     </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-    <div class="hero-glow"></div>
-    <div class="container hero-content">
-        <div class="hero-badge">Our Clinical Ecosystem</div>
-        <h1>Comprehensive <span class="highlight">Dental Care</span></h1>
-        <p>A full range of modern dental services &mdash; from preventive checkups to advanced orthodontics &mdash; delivered by a team that treats every patient like family.</p>
+<!-- ============ STEP PHONE: PAYLOAD CHART ============ -->
+<section class="page-hero" style="background: linear-gradient(135deg, rgba(5,23,42,0.92) 55%, rgba(5,23,42,0.72)), url('https://images.unsplash.com/photo-1675686363422-7d7ab88ee530?fm=jpg&q=60&w=1600&auto=format&fit=crop'); background-size: cover; background-position: center;">
+    <div class="hero-overlay"></div>
+    <div class="container" style="max-width: 640px;">
+        <div class="step-badge">Our Expertise</div>
+        <h1>Services Designed for <span class="highlight">Every Stage of Oral Health</span></h1>
+        <p style="color:var(--text-dim);">From preventive checkups to full-orthodontic correction &mdash; we cover the complete spectrum of dental care under one roof.</p>
     </div>
 </section>
 
 <!-- ============ SERVICE CARDS ============ -->
-<div class="container" style="padding: 40px 0;">
-    <div class="services-grid">
-        <div class="service-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/2818/2818366.png" alt="Routine Checkups" class="service-icon">
-            <div class="service-card-body">
-                <h3>Routine Checkups</h3>
-                <p>Comprehensive preventive cleanings, diagnostic scaling, mapping, and structural oral diagnostic health logs. Early detection of decay, gum disease, and oral pathology is the foundation of lifelong oral health.</p>
-                <a href="booking.html" class="btn">Book a Checkup</a>
+<section class="section-alt" style="padding-top: 60px;">
+    <div class="container">
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="16" cy="10" r="4"/>
+                        <path d="M4 20c0-4 4-7 8-7s8 3 8 7"/>
+                        <circle cx="24" cy="9" r="3"/>
+                        <path d="M18 20c0-3 3-5 6-5s6 2 6 5"/>
+                    </svg>
+                </div>
+                <div class="service-card-body">
+                    <h3>Routine Checkups &amp; Hygiene</h3>
+                    <p style="margin-top:8px;">Comprehensive preventive care including digital X-rays, prophylaxis cleaning, scaling, and oral health screening.</p>
+                    <ul style="margin-top:12px; padding-left:18px;">
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Digital diagnostic imaging</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Air-polishing prophylaxis</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Fluoride treatment &amp; sealants</li>
+                    </ul>
+                    <a href="booking.html" class="btn btn-sm">Book a Checkup</a>
+                </div>
             </div>
-        </div>
-        <div class="service-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/7988/7988015.png" alt="Cosmetic Whitening" class="service-icon">
-            <div class="service-card-body">
-                <h3>Cosmetic Whitening</h3>
-                <p>Professional surface-stain degradation and peroxide whitening procedures targeting internal tracking layers securely. Tailored shade guides ensure a natural, radiant result.</p>
-                <a href="booking.html" class="btn">Book Whitening</a>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="32" cy="32" rx="22" ry="16"/>
+                        <path d="M10 32c0-8 6-14 14-14s14 6 14 14"/>
+                        <path d="M24 32c0-4 3-7 7-7s7 3 7 7"/>
+                        <path d="M32 32v8"/>
+                        <path d="M22 28h8"/><path d="M32 28h8"/><path d="M42 28h8"/>
+                        <path d="M22 36h8"/><path d="M32 36h8"/><path d="M42 36h8"/>
+                    </svg>
+                </div>
+                <div class="service-card-body">
+                    <h3>Cosmetic Whitening</h3>
+                    <p style="margin-top:8px;">Professional-grade peroxide gel applied in-office with the Philips Zoom&nbsp;TN system for dramatic, safe results.</p>
+                    <ul style="margin-top:12px; padding-left:18px;">
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> In-office chairside (45&ndash;60 min)</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Take-home custom trays</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Sensitivity management included</li>
+                    </ul>
+                    <a href="booking.html" class="btn btn-sm">Book Whitening</a>
+                </div>
             </div>
-        </div>
-        <div class="service-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/2167/2167096.png" alt="Braces Orthodontics" class="service-icon">
-            <div class="service-card-body">
-                <h3>Orthodontics</h3>
-                <p>Bite-alignment adjustment grids, structural brace applications, and maintenance operations across all age cohorts, from teens to adults.</p>
-                <a href="booking.html" class="btn">Book Orthodontics</a>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="10" y="16" width="44" height="32" rx="6"/>
+                        <circle cx="20" cy="28" r="3" fill="currentColor" stroke="none"/>
+                        <circle cx="32" cy="28" r="3" fill="currentColor" stroke="none"/>
+                        <circle cx="44" cy="28" r="3" fill="currentColor" stroke="none"/>
+                        <path d="M20 20h12v4"/><path d="M32 20h12v4"/><path d="M44 20h12v4"/>
+                        <path d="M20 36h12v4"/><path d="M32 36h12v4"/><path d="M44 36h12v4"/>
+                    </svg>
+                </div>
+                <div class="service-card-body">
+                    <h3>Orthodontics</h3>
+                    <p style="margin-top:8px;">Bite-alignment correction using ceramic, metal, or clear aligner systems with predictable, long-term arch harmony.</p>
+                    <ul style="margin-top:12px; padding-left:18px;">
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Ceramic (tooth-coloured) braces</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Fixed metal braces</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Clear aligner therapy</li>
+                    </ul>
+                    <a href="booking.html" class="btn btn-sm">Explore Orthodontics</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 34V12l7 5 7-5 7 5 7-5V12l7 5 7-5V38"/>
+                        <circle cx="12" cy="18" r="2"/>
+                        <circle cx="20" cy="18" r="2"/>
+                        <circle cx="28" cy="18" r="2"/>
+                        <path d="M6 8h16"/><path d="M22 4v4"/>
+                    </svg>
+                </div>
+                <div class="service-card-body">
+                    <h3>Restorative Dentistry</h3>
+                    <p style="margin-top:8px;">White-batch fillings, inlays/onlays, and same-day ceramic crowns for durable, natural-looking repair.</p>
+                    <ul style="margin-top:12px; padding-left:18px;">
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Tooth-coloured composite fillings</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Same-day CAD/CAM crowns</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Root canal therapy</li>
+                    </ul>
+                    <a href="booking.html" class="btn btn-sm">Book Restorative</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 14c0 4-4 7-4 7s-4-3-4-7 4-7 4-7 4 3 4 7z"/>
+                        <path d="M20 14c0 4-4 7-4 7s-4-3-4-7 4-7 4-7 4 3 4 7z"/>
+                        <path d="M24 14c0 4-4 7-4 7s-4-3-4-7 4-7 4-7 4 3 4 7z"/>
+                        <path d="M16 22v4"/>
+                        <path d="M28 22v4"/>
+                        <path d="M22 18h4"/>
+                        <path d="M16 28c-4 0-6-2-6-6 0-3 2-5 5-5s5 2 5 5c0 4-2 6-6 6z"/>
+                    </svg>
+                </div>
+                <div class="service-card-body">
+                    <h3>Emergency Care</h3>
+                    <p style="margin-top:8px;">Same-day triage, pain relief, and acute treatment for broken teeth, abscesses, and trauma.</p>
+                    <ul style="margin-top:12px; padding-left:18px;">
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Walk-in triage desk</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> After-hours on-call</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> 24/7 phone triage</li>
+                    </ul>
+                    <a href="booking.html" class="btn btn-sm">Call Emergency</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="12" y="12" width="40" height="40" rx="10"/>
+                        <circle cx="24" cy="24" r="14"/>
+                        <path d="M24 10v8l6 4"/>
+                        <path d="M18 24h12"/>
+                        <circle cx="24" cy="34" r="2"/>
+                        <path d="M21 18h2"/><path d="M15 14h2"/>
+                        <path d="M32 24v8"/><path d="M26 32v4"/>
+                    </svg>
+                </div>
+                <div class="service-card-body">
+                    <h3>Pediatric Dentistry</h3>
+                    <p style="margin-top:8px;">Gentle, anxiety-aware care for children from the first baby tooth through adolescence, including early orthodontics screening.</p>
+                    <ul style="margin-top:12px; padding-left:18px;">
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Desensitisation visits</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Preventive sealants</li>
+                        <li><span class="svg-icon-sm" style="margin-right:6px;"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" fill="none" stroke="var(--teal-glow)"/><path d="M16 9v6l4 2"/></svg></span> Age-appropriate behaviour guidance</li>
+                    </ul>
+                    <a href="booking.html" class="btn btn-sm">Book Pediatric</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- ============ MEDIA GALLERY ============ -->
-<div class="container" style="padding: 20px 0 40px;">
-    <div class="media-section">
-        <h2>Media Content &amp; Gallery</h2>
-        <div class="media-grid">
-            <div class="media-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2818/2818366.png" alt="Clinic interior" style="height:200px; object-fit:cover;">
-                <div class="media-card-body">
-                    <h3>Our Clinical Suites</h3>
-                    <p>Modern, calm treatment rooms equipped with digital radiography and intra-oral cameras for a transparent, informed experience.</p>
+<!-- ============ GALLERY ============ -->
+<section class="section-alt" style="padding-top: 40px;">
+    <div class="container">
+        <div class="media-section">
+            <h2>Facility &amp; Equipment Gallery</h2>
+            <div class="media-grid">
+                <div class="media-card image-gallery">
+                    <img src="https://images.unsplash.com/photo-1642844613096-7b743b7d9915?fm=jpg&q=60&w=800&auto=format&fit=crop" alt="Dental chair in a BrightSmile treatment room" loading="lazy">
+                    <div class="media-card-body">
+                        <h3>Treatment Suite</h3>
+                        <p>A dedicated dental chair with a modern monitor, air-purification system, and clinical lighting.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="media-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/7988/7988015.png" alt="Whitening" style="height:200px; object-fit:cover;">
-                <div class="media-card-body">
-                    <h3>Advanced Whitening Suite</h3>
-                    <p>LED-activated peroxide systems with shade-matching technology and warm, spa-like surroundings.</p>
+                <div class="media-card image-gallery">
+                    <img src="https://images.unsplash.com/photo-1734518352260-acb18b3f1e9c?fm=jpg&q=60&w=800&auto=format&fit=crop" alt="Dental room with red chair and sink" loading="lazy">
+                    <div class="media-card-body">
+                        <h3>Reception &amp; Waiting Room</h3>
+                        <p>Comfortable waiting area with natural materials and calm colour palette.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="media-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2167/2167096.png" alt="Orthodontic" style="height:200px; object-fit:cover;">
-                <div class="media-card-body">
-                    <h3>Orthodontic Suite</h3>
-                    <p>Dedicated space for bite-correction and functional appliances, including 3D scanning for precise aligner design.</p>
+                <div class="media-card image-gallery">
+                    <img src="https://images.unsplash.com/photo-1643660527071-52e37cf7c7ea?fm=jpg&q=60&w=800&auto=format&fit=crop" alt="Dental room with blue chair and dental equipment" loading="lazy">
+                    <div class="media-card-body">
+                        <h3>X-ray &amp; Lab Suite</h3>
+                        <p>Digitally controlled imaging and sterilized instrument storage.</p>
+                    </div>
+                </div>
+                <div class="media-card image-gallery">
+                    <img src="https://images.unsplash.com/photo-1675686363422-7d7ab88ee530?fm=jpg&q=60&w=800&auto=format&fit=crop" alt="Dental office with dental chair and equipment" loading="lazy">
+                    <div class="media-card-body">
+                        <h3>Sterilisation Room</h3>
+                        <p>Closed-unit autoclave and instrument-tracking system for cross-infection control.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
+<!-- ============ FOOTER ENVELOPE ============ -->
 <footer class="footer">
     <div class="container">
-        <p style="font-size:0.9rem;">&copy; 2026 BrightSmile Dental Practice. All Rights Reserved.</p>
-        <p style="font-size:0.85rem; color:var(--text-dim);">Emergency Triage Hotline: <span style="color:var(--teal-glow); font-weight:700;">+233 (0) 555 123 456</span></p>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="logo-group">
+                    <svg class="logo-img" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 30c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8z"/>
+                        <path d="M24 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                        <path d="M36 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                        <path d="M24 32c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                        <ellipse cx="32" cy="44" rx="12" ry="8"/>
+                    </svg>
+                    <span class="logo-text">BrightSmile</span>
+                </a>
+                <p style="margin-top:8px; font-size:0.9rem;">Precision Oral Care. A Better Life Starts With A Beautiful Smile.</p>
+            </div>
+            <div>
+                <p style="font-size:0.9rem;">&copy; 2026 BrightSmile Dental Practice. All Rights Reserved.</p>
+                <p style="font-size:0.85rem; color:var(--text-dim);">
+                    Emergency Triage Hotline: <span style="color:var(--teal-glow); font-weight:700;">+233 (0) 555 123 456</span>
+                </p>
+            </div>
+        </div>
+        <p style="margin-top:16px; font-size:0.8rem; color:var(--text-dim);">
+            Images by <a href="https://unsplash.com" style="color:var(--teal-glow);">Unsplash</a>.
+        </p>
     </div>
 </footer>
 

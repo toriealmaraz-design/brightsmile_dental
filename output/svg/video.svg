@@ -1,0 +1,5 @@
+<svg class="svg-inline" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="7" y="3" width="18" height="26" rx="5"/>
+  <path d="M10 8l8 6-8 6z"/>
+  <circle cx="22" cy="11" r="2" fill="currentColor" stroke="none"/>
+</svg>

@@ -1,8 +1,8 @@
 <?php
-$host = "192.0.2.55";
-$user = "brightsmile_ftp_user";
-$password = "SecureProdPass2026!";
-$database = "brightsmile_production_db";
+$host = "192.0.2.55"; // Your live server IP address
+$user = "brightsmile_ftp_user"; // Your live database/FTP user
+$password = "SecureProdPass2026!"; // Your live server password
+$database = "brightsmile_production_db"; // Your live database name
 
 $conn = mysqli_connect($host, $user, $password, $database);
 if (!$conn) {

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book an Appointment | BrightSmile</title>
-    <meta name="description" content="Book a dental appointment at BrightSmile. Choose a date, time slot, and treatment module online.">
+    <title>Book Appointment — BrightSmile Dental Practice</title>
+    <meta name="description" content="Book a dental appointment at BrightSmile Dental Practice. Secure 2-step online booking with instant confirmation.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><ellipse cx='32' cy='28' rx='14' ry='12'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 8)'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 16)'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 24)'/><ellipse cx='32' cy='20' rx='14' ry='12' transform='translate(0 4)'/><ellipse cx='32' cy='12' rx='14' ry='12' transform='translate(0 4)'/><rect x='18' y='16' width='12' height='6' rx='2'/><rect x='34' y='16' width='12' height='6' rx='2'/><rect x='18' y='24' width='12' height='6' rx='2'/><rect x='34' y='24' width='12' height='6' rx='2'/></svg>">
 </head>
@@ -33,137 +33,218 @@
     </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-    <div class="hero-glow"></div>
-    <div class="container hero-content">
-        <div class="hero-badge">Patient Booking Portal</div>
-        <h1>Reserve Your Clinical Slot</h1>
-        <p>Two quick steps &mdash; create your patient profile, then book a date and time. You'll receive an instant confirmation and automated reminders ahead of your visit.</p>
+<!-- ============ STEP 1: REGISTRATION ============ -->
+<section class="page-hero" style="background: linear-gradient(135deg, rgba(5,23,42,0.9) 60%, rgba(5,23,42,0.75)), url('https://images.unsplash.com/photo-1734518352260-acb18b3f1e9c?fm=jpg&q=60&w=1600&auto=format&fit=crop'); background-size: cover; background-position: center;">
+    <div class="hero-overlay"></div>
+    <div class="container" style="max-width: 600px;">
+        <div class="step-badge">Step 1 of 2 &middot; Registration</div>
+        <h1>Welcome to BrightSmile</h1>
+        <p style="color:var(--text-dim);">To book your appointment, just tell us your name and contact details. No verification required &mdash; enter your details below and we'll fill in the rest.</p>
     </div>
 </section>
 
-<!-- ============ BOOKING FORMS ============ -->
-<div class="container" style="padding: 40px 0;">
-    <div class="form-split">
-        <!-- REGISTER -->
-        <div class="form-card">
-            <h2 style="display:flex; align-items:center; gap:10px;">
-                <span class="step-num">1</span>
-                Create Patient Profile
-                <span class="svg-icon-sm" style="margin-left:auto;color:var(--teal-glow);">
-                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="14"/><path d="M8 12l4 4 8-8"/></svg>
-                </span>
-            </h2>
-            <form action="booking.php" method="POST">
-                <div class="input-container">
-                    <label>Full Name</label>
-                    <input type="text" name="name" required placeholder="Yaw Adi-Bruce">
+<section class="container" style="padding: 40px 0 60px;">
+    <div class="card">
+        <h2 style="margin-bottom:16px;">Step 1: Tell Us About Yourself</h2>
+        <p style="margin-bottom:24px; font-size:0.95rem; color:var(--text-dim);">Fields marked <span style="color:var(--teal-glow);">*</span> are required.</p>
+        <form id="booking-form" class="booking-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="first-name">First Name <span style="color:var(--teal-glow);">*</span></label>
+                    <input type="text" id="first-name" name="first_name" placeholder="e.g. Akosua" required>
                 </div>
-                <div class="input-container">
-                    <label>Email Address</label>
-                    <input type="email" name="email" required placeholder="name@domain.com">
+                <div class="form-group">
+                    <label for="last-name">Last Name <span style="color:var(--teal-glow);">*</span></label>
+                    <input type="text" id="last-name" name="last_name" placeholder="e.g. Boateng" required>
                 </div>
-                <div class="input-container">
-                    <label>Phone Line</label>
-                    <input type="tel" name="phone" required placeholder="0206478727">
-                </div>
-                <div class="input-container">
-                    <label>Security Password</label>
-                    <input type="password" name="password" id="regPass" required placeholder="••••••••">
-                    <span class="pass-toggle" onclick="togglePassword('regPass')">👁️</span>
-                </div>
-                <button type="submit" name="register" class="btn block-btn">
-                    <span class="svg-icon-sm" style="margin-right:8px;">
-                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="14"/><path d="M8 12l4 4 8-8"/></svg>
-                    </span>
-                    Initialize Registry
-                </button>
-            </form>
-        </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email <span style="color:var(--teal-glow);">*</span></label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone <span style="color:var(--teal-glow);">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="+233 55 123 4567" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <div class="form-group">
+                <label for="referrer">How did you hear about us?</label>
+                <select id="referrer" name="referrer">
+                    <option value="">Select an option &mdash;</option>
+                    <option value="google">Search engine (Google)</option>
+                    <option value="social">Social media</option>
+                    <option value="friend">Friend or family</option>
+                    <option value="clinic">Walk-in / previous patient</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group" style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 8px;">
+                <a href="index.html" class="btn btn-ghost" type="button">Cancel</a>
+                <button type="submit" class="btn btn-primary">Continue to Booking &rarr;</button>
+            </div>
+        </form>
+    </div>
+</section>
 
-        <!-- BOOK -->
-        <div class="form-card">
-            <h2 style="display:flex; align-items:center; gap:10px;">
-                <span class="step-num">2</span>
-                Configure Clinical Slot
-                <span class="svg-icon-sm" style="margin-left:auto;color:var(--teal-glow);">
-                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="6" y="6" width="20" height="20" rx="4"/>
-                        <path d="M16 6v20M12 11h8"/>
-                        <circle cx="20" cy="24" r="2.5" fill="currentColor" stroke="none"/>
-                    </svg>
-                </span>
-            </h2>
-            <form action="booking.php" method="POST">
-                <div class="verify-section">
-                    <div class="input-container">
-                        <label>Registered Email</label>
-                        <input type="email" name="login_email" required placeholder="name@domain.com">
-                    </div>
-                    <div class="input-container">
-                        <label>Account Password</label>
-                        <input type="password" name="login_password" id="bookPass" required placeholder="••••••••">
-                        <span class="pass-toggle" onclick="togglePassword('bookPass')">👁️</span>
-                    </div>
+<!-- ============ STEP 2: BOOKING ============ -->
+<section class="section-alt" style="padding-top: 60px;">
+    <div class="container" style="max-width: 960px;">
+        <div class="card">
+            <h2 style="margin-bottom:8px;">Step 2: Choose a Time</h2>
+            <p style="margin-bottom:20px;">Arrive 10 minutes early. For emergencies, call <span style="color:var(--teal-glow); font-weight:700;">+233 (0) 555 123 456</span>.</p>
+
+            <div class="service-switcher">
+                <button class="service-btn active" data-service="checkup">Checkup</button>
+                <button class="service-btn" data-service="whitening">Whitening</button>
+                <button class="service-btn" data-service="braces">Braces</button>
+            </div>
+
+            <div id="availability-grid" class="availability-grid">
+                <div class="time-cell">
+                    <input type="checkbox" name="time-slots" id="slot-09" value="09:00">
+                    <label for="slot-09">09:00 AM</label>
                 </div>
-                <div class="input-container">
-                    <label>Appointment Target Date</label>
-                    <input type="date" name="date" id="appointment_date" required>
+                <div class="time-cell">
+                    <input type="checkbox" name="time-slots" id="slot-0930" value="09:30">
+                    <label for="slot-0930">09:30 AM</label>
                 </div>
-                <div class="input-container">
-                    <label>Operational Time Window</label>
-                    <select name="time" required>
-                        <option value="09:00:00">09:00 AM - Morning Block</option>
-                        <option value="11:00:00">11:00 AM - Midday Block</option>
-                        <option value="14:00:00">02:00 PM - Afternoon Block</option>
-                    </select>
+                <div class="time-cell">
+                    <input type="checkbox" name="time-slots" id="slot-10" value="10:00">
+                    <label for="slot-10">10:00 AM</label>
                 </div>
-                <div class="input-container">
-                    <label>Treatment Module</label>
-                    <select name="treatment" required>
-                        <option value="Routine Checkup">Routine Checkup</option>
-                        <option value="Cosmetic Whitening">Cosmetic Whitening</option>
-                        <option value="Orthodontics">Orthodontics</option>
-                    </select>
+                <div class="time-cell">
+                    <input type="checkbox" name="time-slots" id="slot-1030" value="10:30">
+                    <label for="slot-1030">10:30 AM</label>
                 </div>
-                <button type="submit" name="book" class="btn block-btn secondary-btn">
-                    <span class="svg-icon-sm" style="margin-right:8px;">
-                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="6" y="6" width="20" height="20" rx="4"/>
-                            <path d="M16 6v20M12 11h8"/>
-                            <circle cx="20" cy="24" r="2.5" fill="currentColor" stroke="none"/>
-                        </svg>
-                    </span>
-                    Lock Appointment Node
-                </button>
-            </form>
+                <div class="time-cell">
+                    <input type="checkbox" name="time-slots" id="slot-11" value="11:00">
+                    <label for="slot-11">11:00 AM</label>
+                </div>
+                <div class="time-cell">
+                    <input type="checkbox" name="time-slots" id="slot-14" value="14:00">
+                    <label for="slot-14">02:00 PM</label>
+                </div>
+                <div class="time-cell">
+                    <input type="checkbox" name="time-slots" id="slot-1430" value="14:30">
+                    <label for="slot-1430">02:30 PM</label>
+                </div>
+                <div class="time-cell">
+                    <input type="checkbox" name="time-slots" id="slot-15" value="15:00">
+                    <label for="slot-15">03:00 PM</label>
+                </div>
+                <div class="time-cell">
+                    <input type="checkbox" name="time-slots" id="slot-1530" value="15:30">
+                    <label for="slot-1530">03:30 PM</label>
+                </div>
+                <div class="time-cell">
+                    <input type="checkbox" name="time-slots" id="slot-16" value="16:00">
+                    <label for="slot-16">04:00 PM</label>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 20px; max-width: 480px;">
+                <label for="notes">Notes / Concerns</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Allergies, previous dental history, or anything we should know at the visit..."></textarea>
+            </div>
+
+            <div class="form-group" style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px;">
+                <a href="#registration" class="btn btn-ghost" id="prev-step" type="button">&larr; Back</a>
+                <button type="button" class="btn btn-primary" id="confirm-booking">Confirm Booking &rarr;</button>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<div id="booking_confirmation" style="display:none; margin-top:24px;"></div>
+<!-- ============ CONFIRMATION ============ -->
+<section class="confirmation" id="confirmation" style="display: none;">
+    <div class="container" style="max-width: 600px; text-align: center;">
+        <div class="confirmation-card">
+            <div class="confirmation-icon">
+                <span class="svg-icon-xl" style="color:var(--teal-glow);"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 30c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8z"/><path d="M24 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/><path d="M36 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/><path d="M24 32c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/><ellipse cx="32" cy="44" rx="12" ry="8"/></svg></span>
+            </div>
+            <h1>Booking Confirmed!</h1>
+            <p style="color:var(--text-dim);">Thank you for choosing BrightSmile. A confirmation receipt has been sent to your email.</p>
+            <div class="confirmation-detail">
+                <p><span style="color:var(--text-dim); font-size:0.9rem;">Reference:</span> <span id="booking-ref" style="font-weight:700; color:var(--teal-glow);">BS-261026-0482</span></p>
+                <p><span style="color:var(--text-dim); font-size:0.9rem;">Date:</span> <span id="booking-date">Today</span></p>
+                <p><span style="color:var(--text-dim); font-size:0.9rem;">Time:</span> <span id="booking-time">09:30 AM</span></p>
+                <p><span style="color:var(--text-dim); font-size:0.9rem;">Service:</span> <span id="booking-service">General Checkup</span></p>
+            </div>
+            <a href="index.html" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+</section>
 
+<!-- ============ FOOTER ENVELOPE ============ -->
 <footer class="footer">
     <div class="container">
-        <p style="font-size:0.9rem;">&copy; 2026 BrightSmile Dental Practice. All Rights Reserved.</p>
-        <p style="font-size:0.85rem; color:var(--text-dim);">Emergency Triage Hotline: <span style="color:var(--teal-glow); font-weight:700;">+233 (0) 555 123 456</span></p>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="logo-group">
+                    <svg class="logo-img" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 30c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8z"/>
+                        <path d="M24 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                        <path d="M36 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                        <path d="M24 32c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                        <ellipse cx="32" cy="44" rx="12" ry="8"/>
+                    </svg>
+                    <span class="logo-text">BrightSmile</span>
+                </a>
+                <p style="margin-top:8px; font-size:0.9rem;">Precision Oral Care. A Better Life Starts With A Beautiful Smile.</p>
+            </div>
+            <div>
+                <p style="font-size:0.9rem;">&copy; 2026 BrightSmile Dental Practice. All Rights Reserved.</p>
+                <p style="font-size:0.85rem; color:var(--text-dim);">
+                    Emergency Triage Hotline: <span style="color:var(--teal-glow); font-weight:700;">+233 (0) 555 123 456</span>
+                </p>
+            </div>
+        </div>
+        <p style="margin-top:16px; font-size:0.8rem; color:var(--text-dim);">
+            Images by <a href="https://unsplash.com" style="color:var(--teal-glow);">Unsplash</a>.
+        </p>
     </div>
 </footer>
 
+<script src="js/search.js"></script>
 <script>
-function togglePassword(fieldId) {
-    const field = document.getElementById(fieldId);
-    field.type = field.type === "password" ? "text" : "password";
-}
+    // Confirm booking
+    document.getElementById('confirm-booking').addEventListener('click', function () {
+        // Get checked time slots
+        const slots = document.querySelectorAll('input[name="time-slots"]:checked');
+        const times = Array.from(slots).map(s => s.value);
 
-document.addEventListener("DOMContentLoaded", () => {
-    const targetInput = document.getElementById("appointment_date");
-    if (targetInput) {
-        const today = new Date().toISOString().split('T')[0];
-        targetInput.setAttribute('min', today);
-    }
-});
+        if (times.length === 0) {
+            alert('Please select at least one time slot.');
+            return;
+        }
+
+        // Hide booking, show confirmation
+        document.getElementById('confirmation').style.display = 'block';
+        document.getElementById('booking-ref').textContent = 'BS-261026-' + String(Math.floor(Math.random() * 9000) + 1000);
+        document.getElementById('booking-date').textContent = new Date().toDateString();
+        document.getElementById('booking-time').textContent = times[0] + ' AM';
+        document.getElementById('booking-service').textContent = document.querySelector('.service-btn.active').textContent;
+
+        // Disable the button after confirmation
+        this.disabled = true;
+        this.textContent = 'Confirmed &rarr;';
+    });
+
+    // Service switcher
+    document.querySelectorAll('.service-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            // Animate slots
+            document.querySelectorAll('.time-cell').forEach((cell, i) => {
+                cell.style.opacity = '0.4';
+                setTimeout(() => cell.style.transition = 'opacity 0.3s', 100);
+            });
+        });
+    });
 </script>
 </body>
 </html>
