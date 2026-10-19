@@ -1,6 +1,6 @@
 {
   "hero_dental_chair.jpg": {
-    "url": "https://images.unsplash.com/photo-1642844613096-7b743b7d9915",
+    "url": "https://images.unsplash.com/photo-1642844613096-7b743b7d9915?fm=jpg&q=60&w=1600&auto=format&fit=crop",
     "desc": "A dentist chair with a red seat in a room",
     "author": "Ozkan Guner",
     "category": "hero_dental_chair",
@@ -8,7 +8,7 @@
     "source": "https://unsplash.com/photos/a-dentist-chair-with-a-red-seat-in-a-room-fyD9fsd5gs4"
   },
   "dental_room_red.jpg": {
-    "url": "https://images.unsplash.com/photo-1734518352260-acb18b3f1e9c",
+    "url": "https://images.unsplash.com/photo-1734518352260-acb18b3f1e9c?fm=jpg&q=60&w=1600&auto=format&fit=crop",
     "desc": "A dental room with a red chair and a sink",
     "author": "David",
     "category": "dental_room",
@@ -16,24 +16,24 @@
     "source": "https://unsplash.com/photos/a-dental-room-with-a-red-chair-and-a-sink-dNeRKDj0T7I"
   },
   "dental_office_blue.jpg": {
-    "url": "https://images.unsplash.com/photo-1643660527071-52e37cf7c7ea",
-    "desc": "a dental room with a blue chair and dental equipment",
+    "url": "https://images.unsplash.com/photo-1643660527071-52e37cf7c7ea?fm=jpg&q=60&w=1600&auto=format&fit=crop",
+    "desc": "A dental room with a blue chair and dental equipment",
     "author": "Ozkan Guner",
     "category": "dental_office",
     "license": "Unsplash License",
     "source": "https://unsplash.com/photos/a-dental-room-with-a-blue-chair-and-dental-equipment-AQG6C_xYEpA"
   },
-  "dental_office_equip.jpg": {
-    "url": "https://images.unsplash.com/photo-1675686363422-7d7ab88ee530",
-    "desc": "a dental office with a dental chair and equipment",
-    "author": "Cihat H\u0131d\u0131r",
+  "dental_office_equipment.jpg": {
+    "url": "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?fm=jpg&q=60&w=1600&auto=format&fit=crop",
+    "desc": "An orange dental chair with medical equipment in a bright clinical office",
+    "author": "Benyamin Bohlouli",
     "category": "dental_office",
     "license": "Unsplash License",
-    "source": "https://unsplash.com/photos/a-dental-office-with-a-dental-chair-and-equipment-EMxEWeoQQUw"
+    "source": "https://unsplash.com/photos/dental-chair-in-clinical-office-XJptUS8nbhs"
   },
   "hospital_white_blue.jpg": {
-    "url": "https://images.unsplash.com/photo-1629909615184-74f495363b67",
-    "desc": "white and blue hospital bed",
+    "url": "https://images.unsplash.com/photo-1629909615184-74f495363b67?fm=jpg&q=60&w=1600&auto=format&fit=crop",
+    "desc": "White and blue hospital bed",
     "author": "Benyamin Bohlouli",
     "category": "interior",
     "license": "Unsplash License",
