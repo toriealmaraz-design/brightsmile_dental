@@ -840,6 +840,37 @@ body {
 
 .btn-sm { padding: 8px 18px; font-size: 0.85rem; }
 
+/* ---- Proper block buttons (staff portal) ---- */
+.btn-block {
+    display: block;
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 1rem;
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.btn-danger {
+    display: block;
+    width: 100%;
+    padding: 13px 20px;
+    background: var(--crimson);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    box-shadow: 0 6px 24px rgba(239, 68, 68, 0.5);
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
 /* ---- Services Grid ---- */
 .services-grid {
     display: grid;
