@@ -5,17 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrightSmile Dental Practice Portal</title>
     <meta name="description" content="BrightSmile Dental Practice – modern clinical web portal for scheduling, staff access, and patient records.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><ellipse cx='32' cy='28' rx='14' ry='12'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 8)'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 16)'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 24)'/><ellipse cx='32' cy='20' rx='14' ry='12' transform='translate(0 4)'/><ellipse cx='32' cy='12' rx='14' ry='12' transform='translate(0 4)'/><rect x='18' y='16' width='12' height='6' rx='2'/><rect x='34' y='16' width='12' height='6' rx='2'/><rect x='18' y='24' width='12' height='6' rx='2'/><rect x='34' y='24' width='12' height='6' rx='2'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M20 48 L16 32 L20 20' stroke-linecap='round' stroke-linejoin='round' stroke='currentColor' fill='none' stroke-width='2.5'/><path d='M28 50 L32 22 L36 50' stroke-linecap='round' stroke-linejoin='round' stroke='currentColor' fill='none' stroke-width='2.5'/><circle cx='32' cy='32' r='8' stroke-dasharray='4 4' stroke='currentColor' fill='none' stroke-width='2.5'/></svg>">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: rgba(20, 20, 24, 0.76);
+            --bg-card2: rgba(15, 15, 20, 0.85);
+            --pink: #ff2a85;
+            --pink-strong: #ff1493;
+            --ink: #f0f0f0;
+            --ink-soft: #b5b5b5;
+            --ink-muted: #8a8a8a;
+            --glass: rgba(20, 20, 24, 0.76);
+            --glass-border: rgba(255, 42, 133, 0.3);
+            --shadow: 0 8px 32px rgba(255, 20, 133, 0.12);
+            --radius: 14px;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-ui: 'Source Sans 3', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--font-ui);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            font-family: var(--font-ui);
+            text-align: center;
+        }
+        .btn-primary { background: var(--pink); color: #0a0a0a; }
+        .btn-primary:hover { background: var(--pink-strong); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(255, 20, 133, 0.35); }
+        .btn-outline { background: transparent; color: var(--ink); border-color: rgba(255, 42, 133, 0.4); }
+        .btn-outline:hover { background: rgba(255, 42, 133, 0.1); border-color: var(--pink); transform: translateY(-2px); box-shadow: 0 0 20px rgba(255, 42, 133, 0.2); }
+        .btn-sm { padding: 10px 20px; font-size: 0.85rem; }
+
+        .navbar {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-group { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { width: 40px; height: 40px; filter: drop-shadow(0 0 12px rgba(255, 42, 133, 0.5)); transition: transform 0.3s; }
+        .logo-group:hover .logo-img { transform: scale(1.08); }
+        .logo-text { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--ink); }
+        .nav-links { display: flex; gap: 8px; list-style: none; }
+        .nav-links a { display: block; padding: 10px 18px; text-decoration: none; color: var(--ink-soft); font-weight: 600; font-size: 0.95rem; border-radius: 8px; transition: all 0.3s ease; }
+        .nav-links a:hover { color: var(--pink); background: rgba(255, 42, 133, 0.08); }
+        .nav-links a.active { color: var(--pink); background: rgba(255, 42, 133, 0.12); }
+
+        .hero {
+            position: relative;
+            padding: 100px 0 80px;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 0%, rgba(255, 42, 133, 0.08) 0%, transparent 70%),
+                        radial-gradient(ellipse at 80% 50%, rgba(255, 42, 133, 0.05) 0%, transparent 50%),
+                        linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 100%);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .hero-glow { position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(255, 42, 133, 0.08) 0%, transparent 70%); pointer-events: none; }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; }
+        .hero-badge { display: inline-block; padding: 8px 22px; background: rgba(255, 42, 133, 0.12); border: 1px solid rgba(255, 42, 133, 0.3); border-radius: 50px; color: var(--pink); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 24px; }
+        .hero-title { font-family: var(--font-display); font-size: 3.6rem; font-weight: 700; color: var(--ink); line-height: 1.15; margin-bottom: 24px; }
+        .hero-subtitle { font-size: 1.2rem; color: var(--ink-soft); margin-bottom: 36px; max-width: 720px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; padding: 40px 0; }
+        .stat-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 24px; text-align: center; transition: all 0.3s ease; }
+        .stat-card:hover { border-color: var(--pink); box-shadow: var(--shadow); }
+        .stat-number { font-family: var(--font-display); font-size: 2.6rem; font-weight: 700; color: var(--pink); line-height: 1.1; }
+        .stat-label { color: var(--ink-soft); font-size: 0.9rem; margin-top: 6px; }
+
+        .image-gallery { margin-top: 20px; }
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .image-card { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--glass-border); animation: fadeUp 0.6s ease forwards; }
+        .image-card:hover img { transform: scale(1.06); }
+        .image-card img { width: 100%; height: 240px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .image-card-body { padding: 18px; background: var(--bg-card); }
+        .image-card-badge { display: inline-block; padding: 4px 12px; background: rgba(255, 42, 133, 0.12); border: 1px solid rgba(255, 42, 133, 0.3); border-radius: 999px; color: var(--pink); font-weight: 700; font-size: 0.8rem; margin-bottom: 8px; }
+
+        .media-section h2 { font-family: var(--font-display); font-size: 2rem; color: var(--ink); margin-bottom: 24px; text-align: center; }
+        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .media-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 24px; transition: all 0.3s ease; animation: fadeUp 0.6s ease forwards; }
+        .media-card:hover { border-color: var(--pink); transform: translateY(-4px); box-shadow: var(--shadow); }
+        .media-card-body h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--ink); margin-bottom: 8px; }
+        .media-card-body p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.6; }
+
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 32px; }
+        .testimonial { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 24px; animation: fadeUp 0.6s ease forwards; }
+        .testimonial p { font-size: 0.95rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 12px; font-style: italic; }
+        .author { font-size: 0.85rem; color: var(--pink); font-weight: 700; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; padding: 40px 0; }
+        .service-card { background: linear-gradient(180deg, var(--bg-card), var(--bg-card2)); border: 1px solid var(--glass-border); border-radius: var(--radius); overflow: hidden; transition: all 0.3s ease; animation: fadeUp 0.6s ease forwards; }
+        .service-card:hover { border-color: var(--pink); transform: translateY(-6px); box-shadow: var(--shadow); }
+        .service-icon { width: 100%; height: 180px; object-fit: cover; display: block; background: rgba(255, 42, 133, 0.08); }
+        .service-card-body { padding: 24px; }
+        .service-card-body h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--ink); margin-bottom: 10px; }
+        .service-card-body p { color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; }
+        .service-card-body .btn { margin-right: 10px; }
+
+        .footer { background: var(--bg-card2); border-top: 1px solid var(--glass-border); margin-top: auto; padding: 40px 0; text-align: center; }
+        .footer p { font-size: 0.85rem; color: var(--ink-muted); margin: 6px 0; }
+        .footer a { color: var(--pink); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes logoFloat { 0% { transform: translateY(0); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0); } }
+        @keyframes pulse-number { 0%, 100% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.08); opacity: 1; } }
+        .logo-float { animation: logoFloat 6s ease-in-out infinite; }
+        .pulse-number { animation: pulse-number 2s ease-in-out infinite; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.4rem; }
+            .hero { padding: 60px 0 40px; }
+            .hero-buttons { flex-direction: column; align-items: center; gap: 12px; }
+        }
+    </style>
 </head>
 <body>
 
 <header class="navbar">
     <div class="container nav-container">
         <a href="index.html" class="logo-group">
-            <svg class="logo-img" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 48 L16 32 L20 20" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M28 50 L32 22 L36 50" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg class="logo-img logo-float" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 48 L16 32 L20 20"/>
+                <path d="M28 50 L32 22 L36 50"/>
                 <circle cx="32" cy="32" r="8" stroke-dasharray="4 4"/>
             </svg>
             <span class="logo-text">BrightSmile</span>
@@ -31,79 +170,69 @@
     </div>
 </header>
 
-<!-- ============ HERO / LANDING ============ -->
 <section class="hero">
     <div class="hero-glow"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <div class="hero-badge">
-            <span class="svg-inline" style="width:20px;height:20px;margin-right:8px;vertical-align:middle;">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20C10 16 6 13 6 9a2 2 0 012-2c0 0 4 0 10 0 4 0 6 2 10 5 4-3 10-5 10-5 6 0 10 0 10 5 0 5-4 7-10 7a2 2 0 01-2 2z"/></svg>
-            </span>
-            Precision Oral Care &middot; Digital Portal
-        </div>
-        <h1 class="hero-title">A Better Life Starts With A <span class="highlight">Beautiful Smile</span></h1>
+    <div class="container hero-content">
+        <div class="hero-badge">Precision Oral Care &middot; Digital Portal</div>
+        <h1 class="hero-title">A Better Life Starts With A <span style="font-family:var(--font-display);background:linear-gradient(45deg, var(--pink), var(--pink-strong));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">Beautiful Smile</span></h1>
         <p class="hero-subtitle">Welcome to BrightSmile Dental Practice. We fuse high-fidelity clinical precision with a seamless digital portal experience. Instant profile setup, specialized services, and secure online appointment booking &mdash; no phone calls, no queues.</p>
         <div class="hero-buttons">
             <a href="booking.html" class="btn btn-primary">Secure Your Slot</a>
             <a href="services.html" class="btn btn-outline">Explore Services</a>
         </div>
-        </div>
     </div>
 </section>
 
-<!-- ============ STATS ============ -->
 <div class="container" style="padding: 20px 0 40px;">
     <div class="stats-row">
         <div class="stat-card">
-            <div class="stat-number">12+</div>
+            <div class="stat-number pulse-number">12+</div>
             <div class="stat-label">Years of Clinical Care</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">3,200+</div>
+            <div class="stat-number pulse-number">3,200+</div>
             <div class="stat-label">Patients Served</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">24/7</div>
+            <div class="stat-number pulse-number">24/7</div>
             <div class="stat-label">Emergency Triage</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">4.9</div>
+            <div class="stat-number pulse-number">4.9</div>
             <div class="stat-label">Patient Satisfaction</div>
         </div>
     </div>
 </div>
 
-<!-- ============ HERO IMAGE GALLERY ============ -->
 <div class="container" style="padding: 0 0 40px;">
     <div class="media-section image-gallery">
         <h2>Inside BrightSmile</h2>
         <div class="image-grid">
-            <div class="image-card">
+            <div class="image-card" style="animation-delay:0.05s;">
                 <img src="https://images.unsplash.com/photo-1642844613096-7b743b7d9915?fm=jpg&q=60&w=800&auto=format&fit=crop" alt="Dental chair in a BrightSmile treatment room" loading="lazy">
                 <div class="image-card-body">
                     <div class="image-card-badge">Modern Treatment Room</div>
                     <p>The clinical suite where every detail supports precision care.</p>
                 </div>
             </div>
-            <div class="image-card">
+            <div class="image-card" style="animation-delay:0.10s;">
                 <img src="https://images.unsplash.com/photo-1734518352260-acb18b3f1e9c?fm=jpg&q=60&w=800&auto=format&fit=crop" alt="Dental room with red chair and sink" loading="lazy">
                 <div class="image-card-body">
                     <div class="image-card-badge">Clinical Suite</div>
                     <p>Clinical space designed for patient comfort and dental excellence.</p>
                 </div>
             </div>
-            <div class="image-card">
+            <div class="image-card" style="animation-delay:0.15s;">
                 <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?fm=jpg&q=60&w=800&auto=format&fit=crop" alt="Dental office with dental chair and equipment" loading="lazy">
                 <div class="image-card-body">
                     <div class="image-card-badge">Full Office</div>
                     <p>Complete dental office with fully equipped treatment chair and modern tools.</p>
                 </div>
             </div>
-            <div class="image-card">
+            <div class="image-card" style="animation-delay:0.20s;">
                 <img src="https://images.unsplash.com/photo-1643660527071-52e37cf7c7ea?fm=jpg&q=60&w=800&auto=format&fit=crop" alt="Dental room with blue chair and dental equipment" loading="lazy">
                 <div class="image-card-body">
-                    <div class="image-card-badge"><span class="svg-icon-sm"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="20" height="20" rx="4"/><path d="M16 6v20M12 11h8"/><circle cx="20" cy="24" r="2.5" fill="currentColor" stroke="none"/></svg></span> Equipment Room</div>
+                    <div class="image-card-badge">Equipment Room</div>
                     <p>All dental equipment maintained to the highest clinical standards.</p>
                 </div>
             </div>
@@ -111,67 +240,39 @@
     </div>
 </div>
 
-<!-- ============ ABOUT / WHY BRIGHTSMILE ============ -->
 <div class="container" style="padding: 0 0 40px;">
     <div class="media-section">
         <h2>Why Choose BrightSmile?</h2>
         <div class="media-grid">
             <div class="media-card">
-                <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="14" y="12" width="36" height="40" rx="8"/>
-                    <path d="M20 28h24"/><path d="M24 36h16"/><path d="M20 44h12"/>
-                    <circle cx="20" cy="40" r="2"/><circle cx="32" cy="40" r="2"/><circle cx="44" cy="40" r="2"/>
-                    <path d="M28 24v-4"/><path d="M36 24v-4"/>
-                </svg>
-                <div class="media-card-body">
-                    <h3>Clinical Excellence</h3>
-                    <p>Our dentists combine advanced training with modern equipment to deliver precise, minimally invasive care at every visit.</p>
-                </div>
+                <h3>Clinical Excellence</h3>
+                <p>Our dentists combine advanced training with modern equipment to deliver precise, minimally invasive care at every visit.</p>
             </div>
             <div class="media-card">
-                <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="16" cy="10" r="4"/>
-                    <path d="M4 20c0-4 4-7 8-7s8 3 8 7"/>
-                    <circle cx="24" cy="9" r="3"/>
-                    <path d="M18 20c0-3 3-5 6-5s6 2 6 5"/>
-                </svg>
-                <div class="media-card-body">
-                    <h3>Patient-First Approach</h3>
-                    <p>Transparent pricing, gentle care, and a calm environment designed to put anxious patients at ease.</p>
-                </div>
+                <h3>Patient-First Approach</h3>
+                <p>Transparent pricing, gentle care, and a calm environment designed to put anxious patients at ease.</p>
             </div>
             <div class="media-card">
-                <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="6" y="6" width="20" height="20" rx="4"/>
-                    <path d="M16 6v20M12 11h8"/>
-                    <circle cx="20" cy="24" r="2.5" fill="currentColor" stroke="none"/>
-                </svg>
-                <div class="media-card-body">
-                    <h3>Book Online 24/7</h3>
-                    <p>Choose a date and time that fits your schedule. Instant confirmation, automated reminders, and reschedule on demand.</p>
-                </div>
+                <h3>Book Online 24/7</h3>
+                <p>Choose a date and time that fits your schedule. Instant confirmation, automated reminders, and reschedule on demand.</p>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ============ TESTIMONIALS ============ -->
 <div class="container" style="padding: 0 0 40px;">
     <div class="media-section">
         <h2>What Our Patients Say</h2>
         <div class="testimonial-grid">
             <div class="testimonial">
-                <svg class="svg-icon-sm" style="color:var(--amber);margin-bottom:8px;"><svg viewBox="0 0 32 32" fill="currentColor" stroke="none"><path d="M16 6l4.5 9.5L28 16l-9.5 4.5L16 26l-4.5-9.5L4 16l9.5-4.5L16 6z"/></svg></svg>
                 <p>"Booking my checkup online took two minutes &mdash; I didn't have to wait on hold anymore. The team is genuinely friendly and thorough."</p>
                 <div class="author">&mdash; Ama Mensah</div>
             </div>
             <div class="testimonial">
-                <svg class="svg-icon-sm" style="color:var(--amber);margin-bottom:8px;"><svg viewBox="0 0 32 32" fill="currentColor" stroke="none"><path d="M16 6l4.5 9.5L28 16l-9.5 4.5L16 26l-4.5-9.5L4 16l9.5-4.5L16 6z"/></svg></svg>
                 <p>"After my cosmetic whitening, the results genuinely amazed me. The follow-up care was thorough and the new patient portal is brilliant."</p>
                 <div class="author">&mdash; Kwame Osei</div>
             </div>
             <div class="testimonial">
-                <svg class="svg-icon-sm" style="color:var(--amber);margin-bottom:8px;"><svg viewBox="0 0 32 32" fill="currentColor" stroke="none"><path d="M16 6l4.5 9.5L28 16l-9.5 4.5L16 26l-4.5-9.5L4 16l9.5-4.5L16 6z"/></svg></svg>
                 <p>"Emergencies happen. The 24/7 triage line gave me immediate guidance and a same-day appointment. Truly a lifesaver."</p>
                 <div class="author">&mdash; Aisha Cox</div>
             </div>
@@ -179,94 +280,42 @@
     </div>
 </div>
 
-<!-- ============ INFO CARDS (with SVG icons) ============ -->
 <div class="container" style="padding: 0 0 40px;">
-    <div class="media-section">
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="16" cy="10" r="4"/>
-                        <path d="M4 20c0-4 4-7 8-7s8 3 8 7"/>
-                        <circle cx="24" cy="9" r="3"/>
-                        <path d="M18 20c0-3 3-5 6-5s6 2 6 5"/>
-                    </svg>
-                </div>
-                <div class="service-card-body">
-                    <h3>Routine Checkups</h3>
-                    <p>Comprehensive preventive cleanings, diagnostic scaling, and oral health screening.</p>
-                    <a href="services.html" class="btn btn-sm">Learn More</a>
-                </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <img class="service-icon" src="https://images.unsplash.com/photo-1642844613096-7b743b7d9915?auto=format&fit=crop&w=400&q=60" alt="Routine checkup dental chair in a bright treatment room" loading="lazy">
+            <div class="service-card-body">
+                <h3>Routine Checkups</h3>
+                <p>Comprehensive preventive cleanings, diagnostic scaling, and oral health screening.</p>
+                <a href="services.html" class="btn btn-sm btn-outline">Learn More</a>
             </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <ellipse cx="32" cy="32" rx="22" ry="16"/>
-                        <path d="M10 32c0-8 6-14 14-14s14 6 14 14"/>
-                        <path d="M24 32c0-4 3-7 7-7s7 3 7 7"/>
-                        <path d="M32 32v8"/>
-                        <path d="M22 28h8"/><path d="M22 36h8"/><path d="M22 44h8"/>
-                        <path d="M32 40h-4"/>
-                    </svg>
-                </div>
-                <div class="service-card-body">
-                    <h3>Cosmetic Whitening</h3>
-                    <p>Professional, peroxide-based whitening that safely restores your natural shine.</p>
-                    <a href="services.html" class="btn btn-sm">Learn More</a>
-                </div>
+        </div>
+        <div class="service-card">
+            <img class="service-icon" src="https://images.unsplash.com/photo-1734518352260-acb18b3f1e9c?auto=format&fit=crop&w=400&q=60" alt="Cosmetic whitening dental chair" loading="lazy">
+            <div class="service-card-body">
+                <h3>Cosmetic Whitening</h3>
+                <p>Professional, peroxide-based whitening that safely restores your natural shine.</p>
+                <a href="services.html" class="btn btn-sm btn-outline">Learn More</a>
             </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg class="svg-icon-xl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="10" y="16" width="44" height="32" rx="6"/>
-                        <circle cx="20" cy="28" r="3" fill="currentColor" stroke="none"/>
-                        <circle cx="32" cy="28" r="3" fill="currentColor" stroke="none"/>
-                        <circle cx="44" cy="28" r="3" fill="currentColor" stroke="none"/>
-                        <path d="M20 20h12v4"/><path d="M32 20h12v4"/><path d="M44 20h12v4"/>
-                        <path d="M20 36h12v4"/><path d="M32 36h12v4"/><path d="M44 36h12v4"/>
-                    </svg>
-                </div>
-                <div class="service-card-body">
-                    <h3>Orthodontics</h3>
-                    <p>Bite-alignment correction, structural brace applications, and long-term maintenance.</p>
-                    <a href="services.html" class="btn btn-sm">Learn More</a>
-                </div>
+        </div>
+        <div class="service-card">
+            <img class="service-icon" src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=400&q=60" alt="Orthodontics dental office with braces" loading="lazy">
+            <div class="service-card-body">
+                <h3>Orthodontics</h3>
+                <p>Bite-alignment correction, structural brace applications, and long-term maintenance.</p>
+                <a href="services.html" class="btn btn-sm btn-outline">Learn More</a>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ============ FOOTER ENVELOPE ============ -->
 <footer class="footer">
     <div class="container">
-        <div class="footer-top">
-            <div class="footer-brand">
-                <a href="index.html" class="logo-group">
-                    <svg class="logo-img" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 30c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8z"/>
-                        <path d="M24 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
-                        <path d="M36 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
-                        <path d="M24 32c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
-                        <ellipse cx="32" cy="44" rx="12" ry="8"/>
-                    </svg>
-                    <span class="logo-text">BrightSmile</span>
-                </a>
-                <p style="margin-top:8px; font-size:0.9rem;">Precision Oral Care. A Better Life Starts With A Beautiful Smile.</p>
-            </div>
-            <div>
-                <p style="font-size:0.9rem;">&copy; 2026 BrightSmile Dental Practice. All Rights Reserved.</p>
-                <p style="font-size:0.85rem; color:var(--text-dim);">
-                    Emergency Triage Hotline: <span style="color:var(--teal-glow); font-weight:700;">+233 (0) 555 123 456</span>
-                </p>
-            </div>
-        </div>
-        <p style="margin-top:16px; font-size:0.8rem; color:var(--text-dim);">
-            Proudly hand-coded in PHP, MySQL, HTML5, CSS3 & JavaScript &mdash; hosted on a LAMP/WAMP stack.
-            Images by <a href="https://unsplash.com" style="color:var(--teal-glow);">Unsplash</a>.
-        </p>
+        <p>&copy; 2026 BrightSmile Dental Practice. All Rights Reserved.</p>
+        <p>Emergency Triage Hotline: +233 (0) 555 123 456</p>
+        <p>Images by <a href="https://unsplash.com">Unsplash</a>. Proudly hand-coded in PHP, MySQL, HTML5, CSS3 & JavaScript.</p>
     </div>
 </footer>
 
-<script src="js/search.js"></script>
 </body>
 </html>
