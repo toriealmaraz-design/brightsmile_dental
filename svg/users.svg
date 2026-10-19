@@ -1,0 +1,6 @@
+<svg class="svg-inline" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="10" cy="10" r="4"/>
+  <path d="M4 20c0-4 4-7 8-7s8 3 8 7"/>
+  <circle cx="22" cy="9" r="3"/>
+  <path d="M18 20c0-3 3-5 6-5s6 2 6 5"/>
+</svg>

@@ -1,0 +1,5 @@
+<svg class="svg-inline" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="6" y="6" width="20" height="20" rx="4"/>
+  <path d="M16 6v20M12 11h8"/>
+  <path d="M12 19h4v4h-4z"/>
+</svg>

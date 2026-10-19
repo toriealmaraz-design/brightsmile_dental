@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Portal | BrightSmile</title>
+    <meta name="description" content="Staff portal for BrightSmile Dental Practice – view patient roster, upcoming appointments, and run administrative lookups.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><ellipse cx='32' cy='28' rx='14' ry='12'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 8)'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 16)'/><ellipse cx='32' cy='28' rx='14' ry='12' transform='translate(0 24)'/><ellipse cx='32' cy='20' rx='14' ry='12' transform='translate(0 4)'/><ellipse cx='32' cy='12' rx='14' ry='12' transform='translate(0 4)'/><rect x='18' y='16' width='12' height='6' rx='2'/><rect x='34' y='16' width='12' height='6' rx='2'/><rect x='18' y='24' width='12' height='6' rx='2'/><rect x='34' y='24' width='12' height='6' rx='2'/></svg>">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo-group">
+            <svg class="logo-img" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 30c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8z"/>
+                <path d="M24 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                <path d="M36 20c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                <path d="M24 32c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                <ellipse cx="32" cy="44" rx="12" ry="8"/>
+            </svg>
+            <span class="logo-text">BrightSmile</span>
+        </a>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger"><span></span><span></span><span></span></label>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="booking.html">Book Appointment</a>
+            <a href="staff.html" class="active">Staff Portal</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding:100px 0 60px;">
+    <div class="hero-glow"></div>
+    <div class="container hero-content" style="text-align:center;">
+        <div class="hero-badge">Staff Portal</div>
+        <h1>Internal Operations Dashboard</h1>
+        <p>Authenticate to access the patient master roster, upcoming queue monitor, historical archives, and the client-side DOM search filter.</p>
+    </div>
+</section>
+
+<!-- ============ STAFF LOGIN + DASHBOARD ============ -->
+<div class="container" style="padding: 0 0 40px;">
+    <?php if (session_status() === PHP_SESSION_NONE) { session_start(); } ?>
+    <?php if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true): ?>
+
+        <div class="form-split">
+            <div class="form-card">
+                <h2>Staff Sign-In</h2>
+                <?php if (isset($error)): ?>
+                    <div class="alert danger"><?= htmlspecialchars($error) ?></div>
+                <?php endif; ?>
+                <form action="staff.php" method="POST">
+                    <div class="input-container">
+                        <label>Admin Email Target</label>
+                        <input type="email" name="email" required placeholder="admin@brightsmile.com">
+                    </div>
+                    <div class="input-container">
+                        <label>Access Control Key</label>
+                        <input type="password" name="password" id="adminPass" required placeholder="••••••••">
+                        <span class="pass-toggle" onclick="togglePassword('adminPass')">👁️</span>
+                    </div>
+                    <button type="submit" name="login" class="btn block-btn">
+                        <span class="svg-icon-sm" style="margin-right:8px;">
+                            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="24" height="24" rx="3"/><path d="M8 9h3M13 9h3M18 9h3M8 14h3M13 14h3M18 14h3M8 19h16"/><circle cx="16" cy="24" r="1.5" fill="currentColor" stroke="none"/></svg>
+                        </span>
+                        Execute Authentication
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    <?php else: ?>
+
+        <div class="form-split">
+            <div class="form-card">
+                <div class="dashboard-header">
+                    <div>
+                        <h2 style="border-left-color:var(--teal-glow);">Active Session Registry</h2>
+                        <p style="color:var(--text-muted);">Real-time internal diagnostics array</p>
+                    </div>
+                    <div class="search-box">
+                        <span class="svg-icon-sm" style="position:absolute;left:12px;top:12px;color:var(--text-dim);">
+                            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="10"/><path d="M20 20l6 6"/></svg>
+                        </span>
+                        <input type="text" id="patientSearch" class="search-input" placeholder="🔍 Live query filter..." onkeyup="filterPatients()">
+                    </div>
+                    <a href="logout.php" class="btn danger-btn">
+                        <span class="svg-icon-sm" style="margin-right:8px;">
+                            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 16L8 24l-4-4"/>
+                                <path d="M24 16H4v4h4"/>
+                                <circle cx="12" cy="12" r="2"/>
+                            </svg>
+                        </span>
+                        Kill Server Session
+                    </a>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="report-table" id="registryLogTable">
+                        <thead>
+                            <tr>
+                                <th>Patient ID</th>
+                                <th>Patient Name</th>
+                                <th>Contact Axis</th>
+                                <th>Date Matrix</th>
+                                <th>Time Window</th>
+                                <th>Treatment Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            require_once 'db.php';
+                            $query = "SELECT a.*, p.name, p.phone FROM appointments a JOIN patients p ON a.patient_id = p.id ORDER BY a.date ASC";
+                            $records = mysqli_query($conn, $query);
+                            if (mysqli_num_rows($records) > 0):
+                                while ($row = mysqli_fetch_assoc($records)):
+                            ?>
+                            <tr class="patient-row">
+                                <td style="color:var(--teal-glow); font-weight:700;">#<?= $row['patient_id'] ?></td>
+                                <td><?= htmlspecialchars($row['name']) ?></td>
+                                <td><?= htmlspecialchars($row['phone']) ?></td>
+                                <td><?= $row['date'] ?></td>
+                                <td><?= $row['time'] ?></td>
+                                <td><span class="tag tag-booked"><?= htmlspecialchars($row['treatment']) ?></span></td>
+                            </tr>
+                            <?php
+                                endwhile;
+                            else:
+                            ?>
+                            <tr id="noDataRow">
+                                <td colspan="6" style="text-align:center; color:var(--text-muted);">No current entries detected in active system logs.</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <p id="searchIndicator" style="text-align:center; color:var(--text-dim); margin-top:10px; display:none;">No matching records found</p>
+            </div>
+        </div>
+
+    <?php endif; ?>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p style="font-size:0.9rem;">&copy; 2026 BrightSmile Dental Practice. All Rights Reserved.</p>
+        <p style="font-size:0.85rem; color:var(--text-dim);">Emergency Triage Hotline: <span style="color:var(--teal-glow); font-weight:700;">+233 (0) 555 123 456</span></p>
+    </div>
+</footer>
+
+<script src="js/search.js"></script>
+<script>
+function togglePassword(fieldId) {
+    const field = document.getElementById(fieldId);
+    field.type = field.type === "password" ? "text" : "password";
+}
+
+function filterPatients() {
+    const input = document.getElementById("patientSearch");
+    const filter = input.value.toUpperCase();
+    const table = document.getElementById("registryLogTable");
+    const tr = table.getElementsByTagName("tr");
+
+    for (let i = 1; i < tr.length; i++) {
+        if (tr[i].id === "noDataRow") continue;
+        let rowMatchFound = false;
+        const tdArray = tr[i].getElementsByTagName("td");
+        for (let j = 0; j < tdArray.length; j++) {
+            if (tdArray[j]) {
+                const textValue = tdArray[j].textContent || tdArray[j].innerText;
+                if (textValue.toUpperCase().indexOf(filter) > -1) {
+                    rowMatchFound = true;
+                    break;
+                }
+            }
+        }
+        tr[i].style.display = rowMatchFound ? "" : "none";
+    }
+}
+</script>
+</body>
+</html>

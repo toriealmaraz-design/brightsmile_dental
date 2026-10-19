@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment | BrightSmile</title>
+    <meta name="description" content="Book a dental appointment at BrightSmile. Choose a date, time slot, and treatment module online.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo-group">
+            <img src="https://cdn-icons-png.flaticon.com/512/3467/3467776.png" alt="BrightSmile Tooth Logo" class="logo-img">
+            <span class="logo-text">BrightSmile</span>
+        </a>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger"><span></span><span></span><span></span></label>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="booking.html">Book Appointment</a>
+            <a href="staff.html">Staff Portal</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container hero-content">
+        <div class="hero-badge">Patient Booking Portal</div>
+        <h1>Reserve Your Clinical Slot</h1>
+        <p>Two quick steps &mdash; create your patient profile, then book a date and time. You'll receive an instant confirmation and automated reminders ahead of your visit.</p>
+    </div>
+</section>
+
+<!-- ============ BOOKING FORMS ============ -->
+<div class="container" style="padding: 40px 0;">
+    <div class="form-split">
+        <!-- REGISTER -->
+        <div class="form-card">
+            <h2 style="display:flex; align-items:center; gap:10px;"><span class="step-num">1</span>Create Patient Profile</h2>
+            <form action="booking.php" method="POST">
+                <div class="input-container">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required placeholder="Yaw Adi-Bruce">
+                </div>
+                <div class="input-container">
+                    <label>Email Address</label>
+                    <input type="email" name="email" required placeholder="name@domain.com">
+                </div>
+                <div class="input-container">
+                    <label>Phone Line</label>
+                    <input type="tel" name="phone" required placeholder="0206478727">
+                </div>
+                <div class="input-container">
+                    <label>Security Password</label>
+                    <input type="password" name="password" id="regPass" required placeholder="••••••••">
+                    <span class="pass-toggle" onclick="togglePassword('regPass')">👁️</span>
+                </div>
+                <button type="submit" name="register" class="btn block-btn">Initialize Registry</button>
+            </form>
+        </div>
+
+        <!-- BOOK -->
+        <div class="form-card">
+            <h2 style="display:flex; align-items:center; gap:10px;"><span class="step-num">2</span>Configure Clinical Slot</h2>
+            <form action="booking.php" method="POST">
+                <div class="verify-section">
+                    <div class="input-container">
+                        <label>Registered Email</label>
+                        <input type="email" name="login_email" required placeholder="name@domain.com">
+                    </div>
+                    <div class="input-container">
+                        <label>Account Password</label>
+                        <input type="password" name="login_password" id="bookPass" required placeholder="••••••••">
+                        <span class="pass-toggle" onclick="togglePassword('bookPass')">👁️</span>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label>Appointment Target Date</label>
+                    <input type="date" name="date" id="appointment_date" required>
+                </div>
+                <div class="input-container">
+                    <label>Operational Time Window</label>
+                    <select name="time" required>
+                        <option value="09:00:00">09:00 AM - Morning Block</option>
+                        <option value="11:00:00">11:00 AM - Midday Block</option>
+                        <option value="14:00:00">02:00 PM - Afternoon Block</option>
+                    </select>
+                </div>
+                <div class="input-container">
+                    <label>Treatment Module</label>
+                    <select name="treatment" required>
+                        <option value="Routine Checkup">Routine Checkup</option>
+                        <option value="Cosmetic Whitening">Cosmetic Whitening</option>
+                        <option value="Orthodontics">Orthodontics</option>
+                    </select>
+                </div>
+                <button type="submit" name="book" class="btn block-btn secondary-btn">Lock Appointment Node</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="booking_confirmation" style="display:none; margin-top:24px;"></div>
+
+<footer class="footer">
+    <div class="container">
+        <p style="font-size:0.9rem;">&copy; 2026 BrightSmile Dental Practice. All Rights Reserved.</p>
+        <p style="font-size:0.85rem; color:var(--text-dim);">Emergency Triage Hotline: <span style="color:var(--teal-glow); font-weight:700;">+233 (0) 555 123 456</span></p>
+    </div>
+</footer>
+
+<script>
+function togglePassword(fieldId) {
+    const field = document.getElementById(fieldId);
+    field.type = field.type === "password" ? "text" : "password";
+}
+
+// Prevent booking historic dates
+document.addEventListener("DOMContentLoaded", () => {
+    const targetInput = document.getElementById("appointment_date");
+    if (targetInput) {
+        const today = new Date().toISOString().split('T')[0];
+        targetInput.setAttribute('min', today);
+    }
+});
+</script>
+</body>
+</html>
