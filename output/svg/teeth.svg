@@ -1,12 +1,1 @@
-<svg class="svg-inline" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-  <ellipse cx="32" cy="28" rx="14" ry="12"/>
-  <ellipse cx="32" cy="28" rx="14" ry="12" transform="translate(0 8)"/>
-  <ellipse cx="32" cy="28" rx="14" ry="12" transform="translate(0 16)"/>
-  <ellipse cx="32" cy="28" rx="14" ry="12" transform="translate(0 24)"/>
-  <ellipse cx="32" cy="20" rx="14" ry="12" transform="translate(0 4)"/>
-  <ellipse cx="32" cy="12" rx="14" ry="12" transform="translate(0 4)"/>
-  <rect x="18" y="16" width="12" height="6" rx="2"/>
-  <rect x="34" y="16" width="12" height="6" rx="2"/>
-  <rect x="18" y="24" width="12" height="6" rx="2"/>
-  <rect x="34" y="24" width="12" height="6" rx="2"/>
-</svg>
+<svg class="svg-inline" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="32" cy="28" rx="14" ry="12"/><ellipse cx="32" cy="28" rx="14" ry="12" transform="translate(0 8)"/><ellipse cx="32" cy="28" rx="14" ry="12" transform="translate(0 16)"/><ellipse cx="32" cy="28" rx="14" ry="12" transform="translate(0 24)"/><ellipse cx="32" cy="20" rx="14" ry="12" transform="translate(0 4)"/><ellipse cx="32" cy="12" rx="14" ry="12" transform="translate(0 4)"/><rect x="18" y="16" width="12" height="6" rx="2"/><rect x="34" y="16" width="12" height="6" rx="2"/><rect x="18" y="24" width="12" height="6" rx="2"/><rect x="34" y="24" width="12" height="6" rx="2"/></svg>

@@ -1,5 +1,1 @@
-<svg class="svg-inline" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="4" y="4" width="24" height="24" rx="3"/>
-  <path d="M8 9h3M13 9h3M18 9h3M8 14h3M13 14h3M18 14h3M8 19h16"/>
-  <circle cx="16" cy="24" r="1.5" fill="currentColor" stroke="none"/>
-</svg>
+<svg class="svg-inline" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="24" height="24" rx="3"/><path d="M8 9h3M13 9h3M18 9h3"/><path d="M8 14h3M13 14h3M18 14h3"/><path d="M8 19h16"/><circle cx="16" cy="24" r="1.5" fill="currentColor" stroke="none"/></svg>

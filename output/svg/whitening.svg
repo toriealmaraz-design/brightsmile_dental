@@ -1,10 +1,1 @@
-<svg class="svg-inline" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-  <ellipse cx="32" cy="32" rx="22" ry="16"/>
-  <path d="M10 32c0-8 6-14 14-14s14 6 14 14"/>
-  <path d="M24 32c0-4 3-7 7-7s7 3 7 7"/>
-  <path d="M32 32v8"/>
-  <path d="M22 28h8"/>
-  <path d="M22 36h8"/>
-  <path d="M22 44h8"/>
-  <path d="M32 40h-4"/>
-</svg>
+<svg class="svg-inline" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="32" cy="32" rx="22" ry="16"/><path d="M10 32c0-8 6-14 14-14s14 6 14 14"/><path d="M24 32c0-4 3-7 7-7s7 3 7 7"/><path d="M32 32v8"/><path d="M22 28h8"/><path d="M22 36h8"/><path d="M22 44h8"/><path d="M32 40h-4"/></svg>
